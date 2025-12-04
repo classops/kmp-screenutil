@@ -119,7 +119,7 @@ fun ScreenUtil(
     enableFontScale: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val screenScaler = rememberScreenScaler(screenSize.width, screenSize.height)
+    val screenScaler = rememberScreenScaler(designSize.width, designSize.height)
     if (enableFontScale) {
         CompositionLocalProvider(
             LocalScreenScaler provides screenScaler,
