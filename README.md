@@ -100,6 +100,20 @@ ScreenUtil(
 }
 ```
 
+### 3. ScreenUtil Object
+
+The `ScreenUtil` object provides utility methods and properties:
+
+**Methods:**
+- `w(dp: Int): Dp` - Scale by width ratio
+- `h(dp: Int): Dp` - Scale by height ratio
+
+**Properties:**
+- `density: Float` - Device density
+- `wScale: Float` / `hScale: Float` - Scaling factors
+- `screenWidthDp: Int` / `screenHeightDp: Int` - Screen dimensions
+- `designWidthDp: Int` / `designHeightDp: Int` - Design draft dimensions
+
 ## How It Works
 
 ScreenUtil calculates scaling factors by comparing the actual device screen size to your design draft size:
@@ -117,52 +131,3 @@ As a Compose Multiplatform library, ScreenUtil works on:
 - Desktop (Windows, macOS, Linux)
 - Web
 
-## Example
-
-```kotlin
-@Composable
-fun LoginScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.r),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Image(
-            painter = painterResource("logo.png"),
-            modifier = Modifier.size(80.r),
-            contentDescription = "App Logo"
-        )
-        
-        Spacer(modifier = Modifier.height(20.h))
-        
-        Text(
-            text = "Welcome",
-            fontSize = 24.rsp,
-            fontWeight = FontWeight.Bold
-        )
-        
-        Spacer(modifier = Modifier.height(30.h))
-        
-        TextField(
-            value = "",
-            onValueChange = {},
-            label = { Text("Username") },
-            modifier = Modifier.width(0.8.sw)
-        )
-        
-        Spacer(modifier = Modifier.height(15.h))
-        
-        Button(
-            onClick = { /* Handle login */ },
-            modifier = Modifier
-                .width(0.8.sw)
-                .height(50.h)
-        ) {
-            Text(
-                text = "Login",
-                fontSize = 18.rsp
-            )
-        }
-    }
-}

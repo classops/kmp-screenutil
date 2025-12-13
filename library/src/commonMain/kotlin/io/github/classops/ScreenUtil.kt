@@ -95,11 +95,11 @@ fun rememberScreenScaler(
     val heightDp = (windowInfo.height / density).roundToInt()
     val fontScale = config.fontScale
 
-    val scaleW = widthDp.toFloat() / designWidthDp
-    val scaleH = heightDp.toFloat() / designHeightDp
+    val wScale = widthDp.toFloat() / designWidthDp
+    val hScale = heightDp.toFloat() / designHeightDp
 
     return remember(widthDp, heightDp, density, fontScale) {
-        ScreenScaler(designWidthDp, designHeightDp, widthDp, heightDp, scaleW, scaleH)
+        ScreenScaler(designWidthDp, designHeightDp, widthDp, heightDp, wScale, hScale)
     }
 }
 
@@ -134,4 +134,35 @@ fun ScreenUtil(
             content = content
         )
     }
+}
+
+object ScreenUtil {
+
+    @Composable
+    fun w(dp: Int) = dp.w
+
+    @Composable
+    fun h(dp: Int) = dp.h
+
+    val density: Float
+        @Composable get() = LocalDensity.current.density
+
+    val wScale: Float
+        @Composable get() = LocalScreenScaler.current.wScale
+
+    val hScale: Float
+        @Composable get() = LocalScreenScaler.current.hScale
+
+    val screenWidthDp: Int
+        @Composable get() = LocalScreenScaler.current.deviceWidthDp
+
+    val screenHeightDp: Int
+        @Composable get() = LocalScreenScaler.current.deviceHeightDp
+
+    val designWidthDp: Int
+        @Composable get() = LocalScreenScaler.current.designWidthDp
+
+    val designHeightDp: Int
+        @Composable get() = LocalScreenScaler.current.designHeightDp
+
 }

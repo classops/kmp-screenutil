@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "io.github.classops"
-version = "1.0.0"
+version = "1.0.1"
 
 kotlin {
     jvm()
@@ -63,7 +63,7 @@ mavenPublishing {
 
     pom {
         name = "ScreenUtil"
-        description = "A screen."
+        description = "A Kotlin Multiplatform screen adaptation solution."
         inceptionYear = "2025"
         url = "https://github.com/classops/kmp-screenutil"
 
