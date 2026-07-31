@@ -30,8 +30,8 @@ val Float.h: Dp
 
 val Float.r: Dp
     @Composable get() = (this * min(
-        this * LocalScreenScaler.current.wScale,
-        this * LocalScreenScaler.current.hScale
+        LocalScreenScaler.current.wScale,
+        LocalScreenScaler.current.hScale
     )).dp
 
 inline val Int.w: Dp

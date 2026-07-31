@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("io.github.classops:kmp-screenutil:1.0.1")
+                implementation("io.github.classops:kmp-screenutil:1.0.2")
             }
         }
     }
